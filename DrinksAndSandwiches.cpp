@@ -16,13 +16,15 @@ int main()
 	//perform calculations in assembly language
 	_asm
 	{
+		//calculate the cost of drinks
 		mov ax, drinks;     //ax = drinks (amount of drinks)
 		imul drinkCost;     //ax *= drinkCost (cost for drinks)
-		mov bx, ax;         //bx = ax (cost for drinks moved to the bx register)
+		mov total, ax;      //total = ax (move cost of drinks to total)
+
+		//calculate the cost of sandwiches
 		mov ax, sandwiches; //ax = sandwiches (amount of sandwiches)
 		imul sandwichCost;  //ax *= sandwichCost (cost for sandwiches)
-		add ax, bx;         //ax += bx (add cost for drinks and cost for sandwiches)
-		mov total, ax;      //total = ax (move contents of ax register to total)
+		add total, ax;      //total += ax (add cost of sandwiches onto total)
 	}
 
 	//display the result
