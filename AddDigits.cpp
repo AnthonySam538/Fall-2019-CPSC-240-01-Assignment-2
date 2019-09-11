@@ -12,13 +12,13 @@ int main()
 	_asm
 	{
 		mov eax, num;    //eax = num
-		imul one;        //edx:eax = num
+		cdq;             //edx:eax = num
 		idiv ten;        //eax = num/10 & edx = num%10
 		mov ebx, edx;    //ebx = ones digit
-		imul one;        //edx:eax = num/10
+		cdq;             //edx:eax = num/10
 		idiv ten;        //eax = num/100 & edx = num/10%10
 		add ebx, edx;    //ebx = ones digit + tens digit
-		imul one;        //edx:eax = num
+		cdq;             //edx:eax = num
 		idiv ten;        //eax = num/1000 & edx = num/10/10%10
 		add ebx, edx;    //ebx = ones digit + tens digit + hundreds digit
 		mov result, ebx; //store in result
